@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/index.css" type="text/css" />
+  </head>
+  <body>
+    <div id="mission-text" class="mission-text" aria-hidden="true">
+      <div class="mission-text-panel">
+        <div class="mission-text-header">
+          <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i>
+          <span id="mission-text-instructor">Kørelærer Hansen</span>
+        </div>
+        <p id="mission-text-message"></p>
+      </div>
+    </div>
+
+    <div id="drive-hud" class="drive-hud" aria-hidden="true">
+      <div class="drive-hud-panel">
+        <div class="drive-hud-header">
+          <i id="drive-hud-icon" class="fa-solid fa-route" aria-hidden="true"></i>
+          <span id="drive-hud-title" class="drive-hud-title">Køreprøve</span>
+          <span id="drive-hud-dev" class="drive-hud-dev" hidden>DEV</span>
+          <span id="drive-hud-key" class="drive-hud-key">U</span>
+        </div>
+        <div id="drive-hud-failed" class="drive-hud-failed" hidden>
+          <i class="fa-solid fa-circle-xmark" aria-hidden="true"></i>
+          <span>Ikke bestået - kør tilbage til køreskolen</span>
+        </div>
+        <div class="drive-hud-body">
+          <div class="drive-hud-label">
+            <span>Rute</span>
+            <span id="drive-progress-count" class="drive-hud-count">0 / 0</span>
+          </div>
+          <div class="dmv-progress-track">
+            <progress
+              id="drive-progress-bar"
+              class="dmv-progress-bar"
+              value="0"
+              max="1"
+            ></progress>
+            <div
+              id="drive-progress-markers"
+              class="dmv-progress-markers"
+              aria-hidden="true"
+            ></div>
+          </div>
+        </div>
+        <div id="drive-hud-details" class="drive-hud-details">
+          <div class="drive-hud-stat">
+            <span class="drive-hud-stat-label"
+              ><i class="fa-solid fa-triangle-exclamation"></i> Fejl</span
+            >
+            <span id="drive-errors-count" class="drive-hud-stat-value"
+              >0 / 5</span
+            >
+          </div>
+          <p id="drive-hud-hint" class="drive-hud-hint">Max fejl før prøven ikke bestås</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dmv-overlay">
+      <div class="dmv-wrapper">
+        <div class="dmv-panel">
+          <div class="dmv-header">
+            <h1>Hansen Køreskole</h1>
+            <div class="dmv-header-controls">
+              <span class="theme-toggle-hint">
+                <i
+                  id="theme-hint-icon"
+                  class="fa-solid fa-sun"
+                  aria-hidden="true"
+                ></i>
+                <span id="theme-toggle-label" class="theme-toggle-label"
+                  >Lys</span
+                >
+              </span>
+              <label class="theme-switch" aria-label="Skift tema">
+                <input type="checkbox" id="theme-toggle" />
+                <span class="theme-switch-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="dmv-section dmv-home">
+            <div class="dmv-body">
+              <div class="dmv-hero">
+                <div class="dmv-hero-icon">
+                  <i class="fa-solid fa-chalkboard-user"></i>
+                </div>
+                <p class="dmv-hero-title">Velkommen hos Kørelærer Hansen</p>
+                <p class="dmv-hero-subtitle">
+                  Tag den skriftlige teoriprøve her ved skrivebordet. Når du har
+                  bestået, kan du booke den praktiske køreprøve hos Hansen ude i
+                  skolen.
+                </p>
+              </div>
+
+              <div class="dmv-info-grid dmv-info-grid--single">
+                <div class="dmv-info-card dmv-info-card--theory">
+                  <span class="dmv-step-badge">Skriftlig prøve</span>
+                  <div class="dmv-info-card-head">
+                    <i class="fa-solid fa-laptop"></i>
+                    <h3>Teoriprøve</h3>
+                    <span class="dmv-price">500 kr</span>
+                  </div>
+                  <ul>
+                    <li>
+                      <strong>25 spørgsmål</strong> om færdselsloven, skilte,
+                      vigepligt og trafiksikkerhed
+                    </li>
+                    <li>
+                      Tages <strong>inde på køreskolen</strong> - som den
+                      officielle teoriprøve
+                    </li>
+                    <li>
+                      Kræver <strong>mindst 20 rigtige</strong> for at bestå
+                      (højst 5 fejl)
+                    </li>
+                    <li>
+                      Skal bestås <strong>før</strong> du må booke køreprøve hos
+                      Hansen
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="dmv-footer">
+              <div class="dmv-progress">
+                <div class="dmv-progress-label">
+                  <span>Teoriprøve</span>
+                  <span class="dmv-progress-count">0 / 25</span>
+                </div>
+                <div class="dmv-progress-track">
+                  <progress
+                    class="dmv-progress-bar"
+                    value="0"
+                    max="25"
+                  ></progress>
+                  <div class="dmv-progress-markers" aria-hidden="true"></div>
+                </div>
+              </div>
+              <a href="#" class="dmv-button btn-start dmv-button-theory"
+                ><i class="fa-solid fa-pen-to-square"></i> Start teoriprøve</a
+              >
+            </div>
+          </div>
+
+          <div class="dmv-section dmv-questionnaire">
+            <div class="dmv-body dmv-theory-body">
+              <div class="dmv-theory-banner">
+                <i class="fa-solid fa-laptop"></i>
+                <div>
+                  <span class="dmv-theory-banner-label"
+                    >Teoriprøve · 25 spørgsmål</span
+                  >
+                  <span class="dmv-theory-banner-hint"
+                    >Som hos Færdselsstyrelsen: mindst 20 rigtige, højst 5
+                    fejl</span
+                  >
+                </div>
+              </div>
+              <div class="dmv-question-header">
+                <span class="dmv-question-badge" id="questionNumero"></span>
+                <p class="dmv-question-text" id="question"></p>
+              </div>
+              <form class="dmv-form" id="question-form">
+                <div class="dmv-answer">
+                  <input type="radio" name="question" id="answerA" value="A" />
+                  <label class="answerA" for="answerA"></label>
+                </div>
+                <div class="dmv-answer">
+                  <input type="radio" name="question" id="answerB" value="B" />
+                  <label class="answerB" for="answerB"></label>
+                </div>
+                <div class="dmv-answer">
+                  <input type="radio" name="question" id="answerC" value="C" />
+                  <label class="answerC" for="answerC"></label>
+                </div>
+                <div class="dmv-answer">
+                  <input type="radio" name="question" id="answerD" value="D" />
+                  <label class="answerD" for="answerD"></label>
+                </div>
+              </form>
+            </div>
+            <div class="dmv-footer">
+              <div class="dmv-progress">
+                <div class="dmv-progress-label">
+                  <span>Teoriprøve</span>
+                  <span class="dmv-progress-count">0 / 25</span>
+                </div>
+                <div class="dmv-progress-track">
+                  <progress
+                    class="dmv-progress-bar"
+                    value="0"
+                    max="25"
+                  ></progress>
+                  <div class="dmv-progress-markers" aria-hidden="true"></div>
+                </div>
+              </div>
+              <button
+                type="submit"
+                form="question-form"
+                class="dmv-button dmv-submit dmv-button-theory"
+              >
+                Næste spørgsmål <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="dmv-section dmv-result-pass">
+            <div class="dmv-body dmv-result-body">
+              <div class="dmv-result-icon pass">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+              <p class="dmv-result-title">Teoriprøven er bestået!</p>
+              <p class="dmv-result-text">
+                Du har klaret den skriftlige del. Gå ud til Hansen og book din
+                praktiske køreprøve, når du er klar.
+              </p>
+            </div>
+            <div class="dmv-footer">
+              <div class="dmv-progress">
+                <div class="dmv-progress-label">
+                  <span>Resultat</span>
+                  <span class="dmv-progress-count">0 / 25</span>
+                </div>
+                <div class="dmv-progress-track">
+                  <progress
+                    class="dmv-progress-bar"
+                    value="0"
+                    max="25"
+                  ></progress>
+                  <div class="dmv-progress-markers" aria-hidden="true"></div>
+                </div>
+              </div>
+              <a href="#" class="dmv-button btn-pass-close"
+                ><i class="fa-solid fa-check"></i> Luk</a
+              >
+            </div>
+          </div>
+
+          <div class="dmv-section dmv-result-fail">
+            <div class="dmv-body dmv-result-body">
+              <div class="dmv-result-icon fail">
+                <i class="fa-solid fa-circle-xmark"></i>
+              </div>
+              <p class="dmv-result-title">Teoriprøven er ikke bestået</p>
+              <p class="dmv-result-text">
+                Du havde for få rigtige svar. Læs materialet grundigt og prøv
+                den skriftlige prøve igen hos Hansen.
+              </p>
+            </div>
+            <div class="dmv-footer">
+              <div class="dmv-progress">
+                <div class="dmv-progress-label">
+                  <span>Resultat</span>
+                  <span class="dmv-progress-count">0 / 25</span>
+                </div>
+                <div class="dmv-progress-track">
+                  <progress
+                    class="dmv-progress-bar"
+                    value="0"
+                    max="25"
+                  ></progress>
+                  <div class="dmv-progress-markers" aria-hidden="true"></div>
+                </div>
+              </div>
+              <a href="#" class="dmv-button btn-fail-close dmv-button-danger"
+                ><i class="fa-solid fa-xmark"></i> Luk</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+    <script src="assets/js/questions.js" type="text/javascript"></script>
+    <script src="assets/js/index.js" type="text/javascript"></script>
+  </body>
+</html>
